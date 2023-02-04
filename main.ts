@@ -15,12 +15,12 @@ namespace TemperaturSensor {
     export function TemperaturCelsius(): number {  
         let analogValueA1 = pins.analogReadPin(AnalogPin.C16)
         let temperatureCelcius = getTemperature_GroveSensor(analogValueA1)-273.15
-        return temperatureCelcius
+        return Math.round(100 * temperatureCelcius) / 100
     }
 
     //% block
     export function TemperaturKelvin(): number {  
         let analogValueA1 = pins.analogReadPin(AnalogPin.C16)
-        return getTemperature_GroveSensor(analogValueA1)
+        return Math.round(100 * getTemperature_GroveSensor(analogValueA1)) / 100
     }
 }
